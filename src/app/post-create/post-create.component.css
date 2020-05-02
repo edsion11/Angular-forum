@@ -1,0 +1,37 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.example-full-width textarea {
+  height: 100px;
+  resize: none;
+}
+.post-create {
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  border: 3px solid gray;
+  border-radius: 5px;
+}
+.submit button {
+  float: right;
+  margin: 0 20px;
+}
+.main {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+}
+p {
+  margin-left: 50px;
+  font-size: 17px;
+  font-weight: bold;
+}

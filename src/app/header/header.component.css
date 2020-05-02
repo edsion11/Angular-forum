@@ -1,0 +1,24 @@
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+  justify-content: space-between;
+}
+.leftFlex {
+  display: flex;
+  justify-content: space-between;
+}
+.rightFlex {
+  display: flex;
+  justify-content: space-between;
+}
+.spanMessage {
+  display: inline-flex;
+  justify-items: right;
+  margin: 0 10px;
+  float: right;
+}
+.spanButton {
+  margin: 0 10px;
+}
