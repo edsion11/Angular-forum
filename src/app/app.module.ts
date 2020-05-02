@@ -8,8 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { PostListComponent } from './post-list/post-list.component';
-import { PostCreateComponent } from './post-create/post-create.component';
+import { PostListComponent } from './post/post-list/post-list.component';
+import { PostCreateComponent } from './post/post-create/post-create.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { PostsService } from './post/post.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,7 @@ import { PostCreateComponent } from './post-create/post-create.component';
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
