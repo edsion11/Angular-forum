@@ -22,3 +22,57 @@ mat-toolbar {
 .spanButton {
   margin: 0 10px;
 }
+.headSearch {
+  border: none;
+  border-radius: 100px;
+  background-color: #fff;
+  padding: 5px 16px;
+  margin-left: 8px;
+  color: rgb(155, 153, 153);
+  width: 250px;
+  max-width: 240px;
+  height: 70%;
+  -webkit-appearance: none;
+  font-size: 13px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+}
+.headSearch:focus {
+  /* border-style: solid;
+  border-color: white; */
+}
+.search {
+  width: 295px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding-right: 3px;
+}
+
+button img {
+  width: 20px;
+  height: 33.6px;
+}
+.search button:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+.search button:hover {
+  background-color: rgb(255, 253, 252);
+}
+.search button {
+  background-color: #fff;
+  border: none;
+  width: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.search:hover {
+  border-style: solid;
+  border-color: #03a9f4;
+  box-shadow: 0 0 15px #03a9f4;
+}

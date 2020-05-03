@@ -8,5 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
+  radius: number;
+  color: string;
   ngOnInit(): void {}
+  onAddSearch(): void {
+    alert('搜索成功！');
+  }
 }

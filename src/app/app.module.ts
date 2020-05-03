@@ -12,12 +12,19 @@ import { PostListComponent } from './post/post-list/post-list.component';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PostsService } from './post/post.service';
+import { LeftBarComponent } from './left-bar/left-bar.component';
+import { MatRippleModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { RightBarComponent } from './right-bar/right-bar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PostListComponent,
     PostCreateComponent,
+    LeftBarComponent,
+    RightBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +35,8 @@ import { PostsService } from './post/post.service';
     MatButtonModule,
     MatInputModule,
     MatExpansionModule,
+    MatRippleModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

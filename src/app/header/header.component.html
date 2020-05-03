@@ -1,6 +1,20 @@
 <mat-toolbar color="primary">
   <div class="leftFlex"><span class="spanMessage">MyMessages</span></div>
+  <div class="search">
+    <input
+      matInput
+      class="headSearch"
+      type="search"
+      placeholder="Something you want !"
+    />
+    <button (click)="onAddSearch()">
+      <img src="../../assets/img/examples/thumbs-icon.svg" />
+    </button>
+  </div>
   <div class="rightFlex">
+    <span class="spanButton"
+      ><button mat-button color="accent">Write a New Post</button>
+    </span>
     <span class="spanButton"><button mat-button>Sign in</button> </span>
     <span class="spanButton"><button mat-button>Sign up</button></span>
   </div>

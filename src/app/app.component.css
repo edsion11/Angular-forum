@@ -1,5 +1,17 @@
 main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1rem;
-  width: 600px;
+  width: 100%;
   margin: auto;
+}
+app-left-Bar {
+  width: 20%;
+}
+app-right-Bar {
+  width: 20%;
+}
+app-post-create {
+  width: 60%;
 }
