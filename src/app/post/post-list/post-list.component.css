@@ -1,6 +1,18 @@
 :host {
   margin: 10px;
 }
+
 .info-text {
   text-align: center;
+}
+mat-expansion-panel {
+  overflow: hidden;
+}
+#list {
+  overflow: hidden;
+  height: 100px;
+  cursor: pointer;
+}
+.ng-tns-c79-2 {
+  overflow: hidden;
 }
