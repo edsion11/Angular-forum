@@ -1,0 +1,22 @@
+.content {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.leftSpace {
+  width: 20%;
+  height: inherit;
+  background-color: rgb(252, 252, 252);
+}
+.mainContent {
+  width: 50%;
+  height: inherit;
+  background-color: gray;
+}
+.rightContent {
+  width: 30%;
+  height: inherit;
+  background-color: rgb(177, 174, 174);
+}

@@ -11,11 +11,18 @@ import { MatInputModule } from '@angular/material/input';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { PostsService } from './post/post.service';
 import { LeftBarComponent } from './left-bar/left-bar.component';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RightBarComponent } from './right-bar/right-bar.component';
+import { ScrollImgComponent } from './home/scroll-img/scroll-img.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './user/login/login.component';
+import { SignUpComponent } from './user/signUp/signUp.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +32,12 @@ import { RightBarComponent } from './right-bar/right-bar.component';
     PostCreateComponent,
     LeftBarComponent,
     RightBarComponent,
+    ScrollImgComponent,
+    HomeComponent,
+    FooterComponent,
+    LoginComponent,
+    SignUpComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +50,9 @@ import { RightBarComponent } from './right-bar/right-bar.component';
     MatExpansionModule,
     MatRippleModule,
     MatIconModule,
+    RouterModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

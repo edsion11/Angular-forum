@@ -1,15 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>MeanApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body class="mat-typography">
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>MeanApp</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <style>
+      .ball {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          90deg,
+          rgb(141, 235, 203),
+          rgb(143, 211, 250)
+        );
+        animation: change 2s infinite linear;
+        box-shadow: beige;
+        border-radius: 50%;
+      }
+      @keyframes change {
+        from {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.5);
+        }
+        to {
+          background-color: #82c5fc;
+        }
+      }
+      @keyframes changeColor {
+        from {
+          background: linear-gradient(
+            90deg,
+            rgb(141, 235, 203),
+            rgb(143, 211, 250)
+          );
+        }
+        to {
+          background: linear-gradient(90deg, #ffccff, #ff00ff);
+        }
+      }
+      .ball:hover {
+        background: linear-gradient(90deg, #ffccff, #ff00ff);
+      }
+    </style>
+  </head>
+  <body class="mat-typography">
+    <app-root class="root"><div class="ball"></div></app-root>
+  </body>
 </html>
