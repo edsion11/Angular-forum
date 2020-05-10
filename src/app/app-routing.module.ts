@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: 'home', component: ScrollImgComponent },
   { path: 'sign', component: LoginComponent },
   { path: 'signUp', component: SignUpComponent },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

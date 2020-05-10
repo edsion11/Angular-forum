@@ -4,6 +4,51 @@
     <router-outlet></router-outlet>
   </div>
   <div class="rightContent">
-    <div class="UserInfo"></div>
+    <div class="UserInfo">
+      <div class="user" [ngClass]="{ LogIn: isLogIn }" *ngIf="!isLogIn">
+        <div class="user_1">
+          <!-- 属性Binding---- -->
+          <div class="img"><img [src]="userIcon" /></div>
+          <div class="Info">
+            <!-- 数据绑定 -->
+            <div class="username" style="margin-left: 30px;">
+              {{ username }}
+            </div>
+            <div class="userSign" style="margin-top: 10px;">
+              {{ userSign }}
+            </div>
+          </div>
+        </div>
+        <div class="user_2">
+          <div class="personalInfo">
+            <a href="#"><span>粉丝</span></a
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#"><span>获赞</span></a
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+              href="#"
+              ><span>访问量</span></a
+            >
+          </div>
+          <div class="personalInfo">
+            &nbsp;<a href="#"
+              ><span style="color: rgb(36, 30, 30);">{{ fans }}</span></a
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+              href="#"
+              ><span style="color: rgb(36, 30, 30);">{{ goods }}</span></a
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+              href="#"
+              ><span style="color: rgb(36, 30, 30);">{{ visits }}</span></a
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <ul>
+            <li><a href="https://github.com/edsion11">我的GitHub</a></li>
+            <li><button mat-button color="primary">关注</button></li>
+            <li><button mat-button color="primary">订阅</button></li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="postList" [ngClass]="{ isLogIn: true }"></div>
+    </div>
   </div>
 </div>

@@ -50,7 +50,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatExpansionModule,
     MatRippleModule,
     MatIconModule,
-    RouterModule,
+    RouterModule.forRoot([
+      
+    ]),
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],

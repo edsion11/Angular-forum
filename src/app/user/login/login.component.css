@@ -23,6 +23,7 @@ button {
 }
 input {
   margin-top: 10px;
+  -webkit-appearance: none !important;
 }
 .signComponent {
   border-radius: 10px;
