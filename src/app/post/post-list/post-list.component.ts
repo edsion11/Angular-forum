@@ -28,4 +28,11 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
+  /**
+   * 删除功能
+   * @param data 获取posts下标
+   */
+  delete(data) {
+    this.posts.splice(data, 1);
+  }
 }
