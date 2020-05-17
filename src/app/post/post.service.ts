@@ -30,11 +30,13 @@ export class PostsService {
   getPost() {
     const that = this;
     /* return this.http.get(this.post_url).subscribe((data) => data); */
-    this.http.jsonp(this.post_url, 'callback').subscribe((data) => {
-      Object.keys(data).forEach((key) => {
-        that.posts.push(data[key]);
+    if (that.posts.length === 0) {
+      this.http.jsonp(this.post_url, 'callback').subscribe((data) => {
+        Object.keys(data).forEach((key) => {
+          that.posts.push(data[key]);
+        });
       });
-    });
+    }
     return this.posts;
   }
 

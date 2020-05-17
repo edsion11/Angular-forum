@@ -27,6 +27,7 @@
           ngModel
           required
           #content="ngModel"
+          (keyup.enter)="onAddPost(postForm)"
         ></textarea>
         <mat-error *ngIf="content.invalid"
           >Please enter a valid content.(length>3)</mat-error

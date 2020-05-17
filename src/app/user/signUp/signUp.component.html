@@ -1,19 +1,28 @@
 <div class="signComponent">
-  <form class="example-form">
+  <form
+    class="example-form"
+    (submit)="Register($event, userForm)"
+    #userForm="ngForm"
+  >
     <mat-form-field class="example-full-width">
-      <input type="text" matInput placeholder="UserName" />
+      <input type="text" matInput placeholder="UserName" id="username" />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" />
+      <input type="password" matInput placeholder="Password" id="password" />
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <input type="password" matInput placeholder="AgainPassword" />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="number" matInput placeholder="PhoneNumber" />
+      <input
+        type="number"
+        matInput
+        placeholder="PhoneNumber"
+        id="phoneNumber"
+      />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="email" matInput placeholder="Your Email" />
+      <input type="email" matInput placeholder="Your Email" id="email" />
     </mat-form-field>
     <div id="button">
       <button mat-button color="primary" type="submit">

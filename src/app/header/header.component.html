@@ -9,6 +9,7 @@
       placeholder="Something you want !"
       [(ngModel)]="inputValue"
       name="input"
+      (keyup.enter)="onAddSearch()"
     />
     <button (click)="onAddSearch()" type="submit">
       <img src="../../assets/img/examples/thumbs-icon.svg" />
