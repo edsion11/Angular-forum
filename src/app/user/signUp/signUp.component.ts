@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../UserService/register.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,7 @@ export class SignUpComponent implements OnInit {
   constructor(private auth: RegisterService, private router: Router) {}
 
   ngOnInit(): void {}
+
   Register(event, userForm: NgForm) {
     event.preventDefault();
     const username = event.target.querySelector('#username').value;

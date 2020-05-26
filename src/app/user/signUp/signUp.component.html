@@ -5,16 +5,19 @@
     #userForm="ngForm"
   >
     <mat-form-field class="example-full-width">
-      <input type="text" matInput placeholder="UserName" id="username" />
+      <label for="username"></label><input type="text" matInput placeholder="UserName" id="username" name="username" ngModel #username = "ngModel" required />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <label for="password"></label><input type="password" matInput placeholder="Password" id="password" name="password" ngModel #password = "ngModel" required />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" id="password" />
+      <label>
+        <input type="password" matInput placeholder="AgainPassword" />
+      </label>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="AgainPassword" />
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input
+      <label for="phoneNumber"></label><input
         type="number"
         matInput
         placeholder="PhoneNumber"
@@ -22,7 +25,7 @@
       />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="email" matInput placeholder="Your Email" id="email" />
+      <label for="email"></label><input type="email" matInput placeholder="Your Email" id="email"/>
     </mat-form-field>
     <div id="button">
       <button mat-button color="primary" type="submit">
