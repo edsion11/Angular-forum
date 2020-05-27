@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../UserService/auth.service";
+import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
+  }
+  LoginUser(event,userForm: NgForm){
+    if(userForm.invalid){
+      return
+    }
+    const username = event.target.querySelector('#username').value
+    const password = event.target.querySelector('#password').value
+    this.auth.loginUser(username,password).subscribe((data)=>{
+      alert(data.message)
+      if(data.success==true){
+        console.log(data.success)
+        this.router.navigate(['/userInfo'])
+      }
+    })
   }
 
 }

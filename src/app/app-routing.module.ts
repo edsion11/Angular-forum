@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { ScrollImgComponent } from './home/scroll-img/scroll-img.component';
 import { LoginComponent } from './user/login/login.component';
+import {UserInfoComponent} from "./user/user-info/user-info.component";
 import { SignUpComponent } from './user/signUp/signUp.component';
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {path:'userInfo',component:UserInfoComponent},
 ];
 
 @NgModule({

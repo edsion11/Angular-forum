@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../UserService/register.service';
+import { AuthService } from '../UserService/auth.service';
 import { NgForm, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,12 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./signUp.component.css'],
 })
 export class SignUpComponent implements OnInit {
-  constructor(private auth: RegisterService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   Register(event, userForm: NgForm) {
     event.preventDefault();
+    if(userForm.invalid){
+      return
+    }
     const username = event.target.querySelector('#username').value;
     const password = event.target.querySelector('#password').value;
     const email = event.target.querySelector('#email').value;

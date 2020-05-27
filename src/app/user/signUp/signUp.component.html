@@ -13,7 +13,7 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <label>
-        <input type="password" matInput placeholder="AgainPassword" />
+        <input type="password" matInput placeholder="AgainPassword" required name="AgainPassword" ngModel #AgainPassword = "ngModel"/>
       </label>
     </mat-form-field>
     <mat-form-field class="example-full-width">
@@ -22,13 +22,22 @@
         matInput
         placeholder="PhoneNumber"
         id="phoneNumber"
+        required name="PhoneNumber" ngModel #PhoneNumber = "ngModel"
       />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <label for="email"></label><input type="email" matInput placeholder="Your Email" id="email"/>
+      <label for="email"></label><input
+      type="email"
+      matInput
+      placeholder="Your Email"
+      id="email"
+      required
+      name="email"
+      ngModel
+      #email = "ngModel"/>
     </mat-form-field>
     <div id="button">
-      <button mat-button color="primary" type="submit">
+      <button mat-button color="primary" type="submit" style="width: 200px;height: 40px;border-radius: 20px;background-color: lightgray">
         <span style="color: black;"> Sign up</span>
       </button>
     </div>
