@@ -1,5 +1,7 @@
 <div class="content">
-  <div class="leftSpace"></div>
+  <div class="leftSpace">
+    <app-left-bar></app-left-bar>
+  </div>
   <div class="mainContent">
     <router-outlet></router-outlet>
   </div>
@@ -8,7 +10,7 @@
       <div class="user" [ngClass]="{ LogIn: isLogIn }" *ngIf="!isLogIn">
         <div class="user_1">
           <!-- 属性Binding---- -->
-          <div class="img"><img [src]="userIcon" /></div>
+          <div class="img" routerLink="/userInfo" routerLinkActive="active"><img [src]="userIcon" /></div>
           <div class="Info">
             <!-- 数据绑定 -->
             <div class="username" style="margin-left: 30px;">
@@ -48,7 +50,7 @@
         </div>
       </div>
       <br />
-      <div class="postList" [ngClass]="{ isLogIn: true }"></div>
+      <div class="postList" [ngClass]="{ isLogIn: true }"><app-right-bar></app-right-bar></div>
     </div>
   </div>
 </div>

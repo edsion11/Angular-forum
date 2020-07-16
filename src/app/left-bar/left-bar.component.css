@@ -1,5 +1,3 @@
-.leftBar {
-  height: 600px;
-  width: 300px;
-  background-color: bisque;
+.content{
+  padding:10px;
 }

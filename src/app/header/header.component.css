@@ -14,6 +14,10 @@ mat-toolbar {
   display: flex;
   justify-content: space-between;
 }
+.rightA:focus{
+
+  outline: none;
+}
 .rightFlex .rightA {
   display: flex;
   align-items: center;
@@ -22,7 +26,7 @@ mat-toolbar {
   height: 64px;
   font-size: 15px;
   text-decoration: none;
-  background-image: linear-gradient(rgb(241, 96, 51), rgb(233, 78, 39));
+  background-image: linear-gradient(rgb(29, 7, 0), rgb(24, 5, 1));
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 0 3px;
@@ -34,20 +38,7 @@ mat-toolbar {
   justify-content: flex-end;
 }
 
-.rightFlex .rightA {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  height: 64px;
-  font-size: 15px;
-  text-decoration: none;
-  background-image: linear-gradient(rgb(241, 96, 51), rgb(233, 78, 39));
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 0 3px;
-  transition: background-size 500ms ease-in-out;
-}
+
 .rightFlex .rightA:hover {
   background-color: rgb(187, 184, 184);
   cursor: pointer;

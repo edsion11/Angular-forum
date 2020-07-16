@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import{AuthService} from "../UserService/auth.service";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-user-info',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInfoComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private auth : AuthService,private router:Router) { }
+  public message="hello world!"
   ngOnInit(): void {
   }
-
+  logout(){
+    this.auth.setLoggedIn(false);
+    this.router.navigate(['/home'])
+  }
 }

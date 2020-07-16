@@ -48,4 +48,7 @@ export class PostsService {
     this.posts.push(post);
     this.postUpdated.next([...this.posts]);
   }
+  editPost(title: string, content: string){
+
+  }
 }

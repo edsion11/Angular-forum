@@ -15,6 +15,12 @@ mat-expansion-panel {
   height: 100px;
   cursor: pointer;
 }
+#list:focus{
+  outline: none;
+}
+#list:hover{
+  color: #71c2e8;
+}
 .ng-tns-c79-2 {
   overflow: hidden;
 }

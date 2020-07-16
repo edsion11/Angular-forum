@@ -7,7 +7,7 @@
       {{ post.content }}
     </p>
     <mat-action-row *ngIf="posts.length > 0">
-      <button mat-button color="primary">
+      <button mat-button color="primary" (click)="EditPost(i)">
         EDIT
       </button>
       <button mat-button color="accent" (click)="delete(i)">

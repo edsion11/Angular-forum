@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
   public inputValue = '';
-  radius: number;
   color: string;
   ngOnInit(): void {}
   onAddSearch(): void {

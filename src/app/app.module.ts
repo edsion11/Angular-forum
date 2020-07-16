@@ -12,6 +12,7 @@ import { PostListComponent } from './post/post-list/post-list.component';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LeftBarComponent } from './left-bar/left-bar.component';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RightBarComponent } from './right-bar/right-bar.component';
@@ -26,6 +27,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientJsonpModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from "@angular/material/card";
+import { UMeditorModule } from 'ngx-umeditor';
+import { NotFindComponent } from './not-find/not-find.component';
+import { EditPostComponent } from './post/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +46,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignUpComponent,
     UserInfoComponent,
+    NotFindComponent,
+    EditPostComponent,
   ],
   imports: [
+    UMeditorModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -50,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCardModule,
     MatInputModule,
     MatExpansionModule,
     MatRippleModule,
@@ -57,6 +66,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule.forRoot([]),
     HttpClientModule,
     HttpClientJsonpModule,
+    MatChipsModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],

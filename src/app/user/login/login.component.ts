@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
       alert(data.message)
       if(data.success==true){
         console.log(data.success)
+        this.auth.setLoggedIn(true);
         this.router.navigate(['/userInfo'])
       }
     })
