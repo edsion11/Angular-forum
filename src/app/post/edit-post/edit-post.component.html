@@ -1,4 +1,11 @@
-<p>{{content}}</p>
-<umeditor
-  [path]="'./../assets/umeditor'"
-></umeditor>
+<!-- <p>{{ content }}</p> -->
+<div class="content">
+  <div class="example-form">
+    <mat-form-field class="example-full-width">
+    <input id="input" matInput placeholder="Title"  [(ngModel)]="title" required>
+    </mat-form-field>
+    <ckeditor [editor]="Editor" [(ngModel)]="content" >
+    </ckeditor>
+   <div id="submit" routerLink="/home" (click)="postChanged()">提交</div>
+  </div>
+</div>

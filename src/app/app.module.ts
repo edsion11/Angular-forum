@@ -12,7 +12,7 @@ import { PostListComponent } from './post/post-list/post-list.component';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LeftBarComponent } from './left-bar/left-bar.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RightBarComponent } from './right-bar/right-bar.component';
@@ -27,10 +27,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientJsonpModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatCardModule} from "@angular/material/card";
-import { UMeditorModule } from 'ngx-umeditor';
+import { MatCardModule } from '@angular/material/card';
 import { NotFindComponent } from './not-find/not-find.component';
 import { EditPostComponent } from './post/edit-post/edit-post.component';
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import { PostPreviewComponent } from './post-preview/post-preview.component';
 
 @NgModule({
   declarations: [
@@ -48,9 +49,10 @@ import { EditPostComponent } from './post/edit-post/edit-post.component';
     UserInfoComponent,
     NotFindComponent,
     EditPostComponent,
+    PostPreviewComponent,
   ],
   imports: [
-    UMeditorModule.forRoot(),
+    CKEditorModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -66,7 +68,7 @@ import { EditPostComponent } from './post/edit-post/edit-post.component';
     RouterModule.forRoot([]),
     HttpClientModule,
     HttpClientJsonpModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],

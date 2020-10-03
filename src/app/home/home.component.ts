@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public userSign: string = '永远相信，美好的事物即将到来';
   public userIcon: string = '../../assets//img/user-boy.svg';
   constructor(private router:Router) {}
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    alert("欢迎访问，测试用户名:admin,密码：admin")
+  }
 }

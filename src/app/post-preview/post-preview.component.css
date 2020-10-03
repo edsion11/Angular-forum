@@ -1,0 +1,85 @@
+.postBox{
+  box-sizing: border-box;
+  width: 90%;
+  height: 150px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+.left{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left > img{
+  border-radius: 5px;
+  width: 90%;
+  height: 90%;
+}
+.right{
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#title{
+  font-size: 14px;
+  font-weight: bolder;
+}
+#title:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.right > .smallContent{
+  width: 80%;
+  height: 60px;
+  text-height: 16px;
+  border-radius: 2%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  cursor: pointer;
+}
+.right > .smallContent:hover{
+  color: #555555;
+}
+.forumInfo{
+  width: 80%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.forum-time{
+  width: 20%;
+  color: gray;
+}
+.forumInfoRight{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+.like{
+  width: 20%;
+  border-radius: 2px;
+  border: 1px solid gray;
+  color: #909090;
+}
+.like > img{
+  width: 40%;
+  height: 100%;
+}
+.cai{
+  width: 20%;
+  border-radius: 2px;
+  border: 1px solid gray;
+  color: #909090;
+}
+.cai > img{
+  width: 40%;
+  height: 100%;
+}
