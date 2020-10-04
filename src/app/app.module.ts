@@ -30,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { NotFindComponent } from './not-find/not-find.component';
 import { EditPostComponent } from './post/edit-post/edit-post.component';
-import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
 
 @NgModule({

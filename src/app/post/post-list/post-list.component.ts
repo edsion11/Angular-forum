@@ -1,15 +1,49 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnDestroy,
+  HostBinding,
+} from '@angular/core';
 import { Post } from '../post.model';
 import { PostsService } from '../post.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import {
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css'],
+  animations: [
+    trigger('pageAnimations', [
+      transition(':enter', [
+        query('.card,p,div', [
+          style({ opacity: 0, transform: 'translateY(-100px)' }),
+          stagger(-30, [
+            animate(
+              '500ms cubic-bezier(0.35,0,0.25,1)',
+              style({
+                opacity: 1,
+                transform: 'none',
+              })
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+  ],
 })
 export class PostListComponent implements OnInit, OnDestroy {
+  @HostBinding('@pageAnimations')
+  public animatePage = true;
   constructor(public postsService: PostsService, private router: Router) {}
   posts: Post[] = [];
   private postsSub: Subscription;
@@ -44,10 +78,7 @@ export class PostListComponent implements OnInit, OnDestroy {
       }
     });
   }
-  EditPost(key) {
-    let data = JSON.parse(JSON.stringify(this.posts[key]));
-    data.id = key;
-    console.log(data);
-    this.router.navigate(['/EditPost', data]);
+  EditPost(key: number) {
+    this.router.navigate(['/EditPost', { key }]);
   }
 }

@@ -8,6 +8,10 @@ interface Getposts {
   posts?: [];
   message: string;
 }
+interface PostRes {
+  success: boolean;
+  message: string;
+}
 
 interface Deleteposts {
   success: boolean;
@@ -32,7 +36,7 @@ export class PostsService {
     get()请求获取localhost本地资源，不跨域
   */
   private ServicePosts: Post[] = [];
-  private posts: Post[] = [];
+  public posts: Post[] = [];
 
   private postUpdated = new Subject<Post[]>();
 
@@ -48,12 +52,19 @@ export class PostsService {
   getPostUpdateListener() {
     return this.postUpdated.asObservable();
   }
-  addPost(title: string, content: string) {
-    const post: Post = { title, content };
+  addPost(title: string, content: string, username: string) {
+    const post: Post = { title, content, username };
     this.posts.push(post);
+    console.log(post);
     this.postUpdated.next([...this.posts]);
+    this.http
+      .post<PostRes>('/api/userApi/addPost', { title, content, username })
+      .subscribe((data) => {
+        console.log(data.message);
+      });
   }
-  editPost(title: string, content: string, id: number, _id: string) {
+  editPost(key) {
+    const { _id, title, content } = this.posts[key];
     this.http
       .put('/api/userApi/editPosts', {
         _id,

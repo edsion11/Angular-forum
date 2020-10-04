@@ -20,6 +20,7 @@ interface LoginData {
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
+  public username = '';
   public isLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false');
   setLoggedIn(value: boolean) {
     this.isLoggedIn = value;
@@ -37,10 +38,10 @@ export class AuthService {
       email,
     });
   }
-  loginUser(username,password){
-    return this.http.post<LoginData>(  '/api/userApi/auth',{
+  loginUser(username, password) {
+    return this.http.post<LoginData>('/api/userApi/auth', {
       username,
-      password
-    })
+      password,
+    });
   }
 }

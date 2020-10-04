@@ -1,3 +1,4 @@
+import { AuthService } from './../../user/UserService/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PostsService } from '../post.service';
@@ -7,16 +8,21 @@ import { PostsService } from '../post.service';
   styleUrls: ['./post-create.component.css'],
 })
 export class PostCreateComponent implements OnInit {
-  constructor(public postsService: PostsService) {}
-
-  ngOnInit(): void {}
+  constructor(public postsService: PostsService, public auth: AuthService) {}
+  public username = '';
+  ngOnInit(): void {
+    this.username = this.auth.username || 'admin';
+  }
 
   onAddPost(form: NgForm) {
-    console.log(form);
     if (form.invalid) {
       return;
     }
-    this.postsService.addPost(form.value.title, form.value.content);
+    this.postsService.addPost(
+      form.value.title,
+      form.value.content,
+      this.username
+    );
     form.resetForm();
   }
 }
