@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ewind-111c7": {
+      "hosting": {
+        "mean-app": [
+          "ewind-111c7"
+        ]
+      }
+    }
+  }
+}
