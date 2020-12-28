@@ -65,7 +65,7 @@ import { PostPreviewComponent } from './post-preview/post-preview.component';
     MatExpansionModule,
     MatRippleModule,
     MatIconModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
     HttpClientModule,
     HttpClientJsonpModule,
     MatChipsModule,
