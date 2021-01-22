@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MarkdownPreviewComponent implements OnInit {
 
   constructor() { }
-  @Input data: string;
+  @Input() data: string;
   ngOnInit(): void {
   }
 }

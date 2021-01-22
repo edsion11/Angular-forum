@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
-
+  message = 'hello';
   constructor(private auth: AuthService, private router: Router) { }
   ngOnInit(): void {
   }
