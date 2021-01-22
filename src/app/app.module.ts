@@ -63,7 +63,7 @@ import { MarkdownPreviewComponent } from './post/markdown-preview/markdown-previ
     MatExpansionModule,
     MatRippleModule,
     MatIconModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
     HttpClientModule,
     HttpClientJsonpModule,
     MatChipsModule,

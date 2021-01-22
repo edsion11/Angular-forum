@@ -1,6 +1,11 @@
 # MeanApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+本项目为Angular框架的应用之一，为本人对于Angular的学习所得，敬请指教。
+
+## Firebase Url
+部署到Firebase的url:
+Hosting URL: https://ewind-111c7.web.app
+
 
 ## Development server
 
