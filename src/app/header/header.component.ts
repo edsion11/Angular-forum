@@ -9,9 +9,9 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {
-    this.auth.isUserLoggedIn.subscribe(value=>{
+    this.auth.isUserLoggedIn.subscribe(value => {
       this.isloggedIn = value;
-    })
+    });
   }
   public inputValue = '';
   color: string;
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     this.auth.setLoggedIn(false);
-    this.router.navigate(['/home']);
     this.auth.isUserLoggedIn.next(false);
+    this.router.navigate(['/home']);
   }
 }

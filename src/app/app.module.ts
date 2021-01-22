@@ -23,7 +23,7 @@ import { SignUpComponent } from './user/signUp/signUp.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HttpClientJsonpModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -31,6 +31,7 @@ import { NotFindComponent } from './not-find/not-find.component';
 import { EditPostComponent } from './post/edit-post/edit-post.component';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { MarkdownPreviewComponent } from './post/markdown-preview/markdown-preview.component';
+import {PostInterceptor} from './http-interceptors/post-interceptor';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,16 @@ import { MarkdownPreviewComponent } from './post/markdown-preview/markdown-previ
     HttpClientJsonpModule,
     MatChipsModule,
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PostInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

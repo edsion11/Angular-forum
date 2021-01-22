@@ -1,6 +1,6 @@
-import { Post } from './post.model';
+import { Post } from './post';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 interface Getposts {
@@ -21,32 +21,33 @@ interface Deleteposts {
 @Injectable({ providedIn: 'root' })
 export class PostsService {
   constructor(private http: HttpClient) {}
-  /*
-  跨域资源在Github上用my-json0-server生成服务器json文件
-  如果继续使用get()请求，不能获取，由于浏览器的CORS
-  跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器
-   让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。
-   当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
-   出于安全原因，浏览器限制了发起跨站请求，也可能是跨站请求可以正常发起，但是返回结果被浏览器拦截了。
-   这意味着使用这些API的Web应用程序只能从加载应用程序的同一个域请求HTTP资源，除非响应报文包含了正确CORS响应头。
-  */
-  // tslint:disable-next-line: variable-name
-
-  /*
-    get()请求获取localhost本地资源，不跨域
-  */
-  public posts: Post[] = [];
-
+  private localPosts = [{_id: '5f780f34c3af53348887a10d', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单'}, {_id: '5f780f55c3af53348887a10e', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'}, {_id: '5f780f5bc3af53348887a10f', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'}, {_id: '5f780f61c3af53348887a110', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'}, {_id: '5f780f6ac3af53348887a111', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'}, {_id: '5f780f71c3af53348887a112', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'}, {_id: '5f796fa9e56fe44ac08af5b1', title: 'React', username: 'admin', content: '我是react', __v: 0}, {_id: '5f796fbc680a052590815467', title: 'React', username: 'admin', content: '我是react'}, {_id: '5f796fbd680a052590815468', title: 'React', username: 'admin', content: '我是react'}, {_id: '5f79785b680a05259081546a', title: 'Vue', username: 'admin', content: 'Vue测试'}];
+  public posts: Post[] = [
+    {_id: '5f780f34c3af53348887a10d', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单'},
+    {_id: '5f780f55c3af53348887a10e', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'},
+    {_id: '5f780f5bc3af53348887a10f', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'},
+    {_id: '5f780f61c3af53348887a110', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'},
+    {_id: '5f780f6ac3af53348887a111', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'},
+    {_id: '5f780f71c3af53348887a112', userid: 1, username: 'admin', title: 'Angular(1)', content: 'Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。'},
+    {_id: '5f796fa9e56fe44ac08af5b1', title: 'React', username: 'admin', content: '我是react'},
+    {_id: '5f796fbc680a052590815467', title: 'React', username: 'admin', content: '我是react'},
+    {_id: '5f796fbd680a052590815468', title: 'React', username: 'admin', content: '我是react'},
+    {_id: '5f79785b680a05259081546a', title: 'Vue', username: 'admin', content: 'Vue测试'}, {_id: '5f79857a680a05259081546b', title: 'hello world', username: 'admin', content: 'hello!'}];
   private postUpdated = new Subject<Post[]>();
-
   getPost() {
     const that = this;
+    setTimeout(() => {
+      that.postUpdated.next(this.localPosts);
+    }, 0);
     const posturl = '/api/userApi/posts?username=admin';
-    let getposts = this.http.get<Getposts>(posturl);
+    const getposts = this.http.get<Getposts>(posturl);
     getposts.subscribe((data) => {
-      that.posts = data.posts;
+        that.posts = data.posts;
+        that.postUpdated.next(data.posts);
     });
-    return getposts;
+  }
+  postsInit(){
+    this.getPost();
   }
   getPostUpdateListener() {
     return this.postUpdated.asObservable();

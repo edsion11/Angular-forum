@@ -15,6 +15,7 @@ export class UserInfoComponent implements OnInit {
   }
   logout(){
     this.auth.setLoggedIn(false);
+    this.auth.isUserLoggedIn.next(false);
     this.router.navigate(['/home']);
   }
 }

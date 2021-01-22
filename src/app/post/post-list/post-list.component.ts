@@ -5,7 +5,7 @@ import {
   OnDestroy,
   HostBinding,
 } from '@angular/core';
-import { Post } from '../post.model';
+import { Post } from '../post';
 import { PostsService } from '../post.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -49,12 +49,11 @@ export class PostListComponent implements OnInit, OnDestroy {
   private postsSub: Subscription;
   ngOnInit(): void {
     const that = this;
-    this.postsService.getPost().subscribe((data) => {
-      that.posts = data.posts;
-    });
+    this.postsService.postsInit();
     this.postsSub = this.postsService
       .getPostUpdateListener()
       .subscribe((posts: Post[]) => {
+        console.log('subscribe', posts);
         this.posts = posts;
       });
   }
@@ -66,7 +65,7 @@ export class PostListComponent implements OnInit, OnDestroy {
    * @param data 获取posts下标
    */
   delete(data) {
-    let _id = this.posts[data]._id;
+    const _id = this.posts[data]._id;
     const that = this;
     this.postsService.deletePost(_id).subscribe((msg) => {
       if (msg.success) {
