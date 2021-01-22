@@ -2,10 +2,16 @@
 <div class="content">
   <div class="example-form">
     <mat-form-field class="example-full-width">
-    <input id="input" matInput placeholder="Title"  [(ngModel)]="title" required>
+    <input  class="title" matInput placeholder="Title"  [(ngModel)]="title" required >
     </mat-form-field>
-    <ckeditor [editor]="Editor" [(ngModel)]="content" >
-    </ckeditor>
+    <textarea
+      class="textarea"
+      (ngModelChange)="onchange()"
+      [(ngModel)]="content" >
+    </textarea>
+    <textarea
+      class="text-not" [(ngModel)]="content"></textarea>
    <div id="submit" routerLink="/home" (click)="postChanged()">提交</div>
   </div>
+  <app-markdown-preview class="preview" [data] = "data"></app-markdown-preview>
 </div>

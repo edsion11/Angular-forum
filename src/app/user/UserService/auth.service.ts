@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 interface RegisterData {
   username: string;
   password: string;
   email: string;
   success?: boolean;
-  message?: String;
+  message?: string;
 }
 interface LoginData {
   username: string;
   password: string;
   success?: boolean;
-  message?: String;
+  message?: string;
 }
 
 @Injectable({
@@ -22,6 +23,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
   public username = '';
   public isLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false');
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   setLoggedIn(value: boolean) {
     this.isLoggedIn = value;
     localStorage.setItem('loggedIn', value.toString());

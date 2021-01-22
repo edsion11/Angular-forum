@@ -16,7 +16,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RightBarComponent } from './right-bar/right-bar.component';
-import { ScrollImgComponent } from './home/scroll-img/scroll-img.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './user/login/login.component';
@@ -30,8 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { NotFindComponent } from './not-find/not-find.component';
 import { EditPostComponent } from './post/edit-post/edit-post.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
+import { MarkdownPreviewComponent } from './post/markdown-preview/markdown-preview.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { PostPreviewComponent } from './post-preview/post-preview.component';
     PostCreateComponent,
     LeftBarComponent,
     RightBarComponent,
-    ScrollImgComponent,
     HomeComponent,
     FooterComponent,
     LoginComponent,
@@ -50,9 +48,9 @@ import { PostPreviewComponent } from './post-preview/post-preview.component';
     NotFindComponent,
     EditPostComponent,
     PostPreviewComponent,
+    MarkdownPreviewComponent,
   ],
   imports: [
-    CKEditorModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

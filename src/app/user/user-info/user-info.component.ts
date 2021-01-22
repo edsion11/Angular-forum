@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import{AuthService} from "../UserService/auth.service";
-import {Router} from "@angular/router";
+import {AuthService} from '../UserService/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,12 +10,11 @@ import {Router} from "@angular/router";
 })
 export class UserInfoComponent implements OnInit {
 
-  constructor(private auth : AuthService,private router:Router) { }
-  public message="hello world!"
+  constructor(private auth: AuthService, private router: Router) { }
   ngOnInit(): void {
   }
   logout(){
     this.auth.setLoggedIn(false);
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']);
   }
 }

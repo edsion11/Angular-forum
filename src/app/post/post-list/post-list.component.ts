@@ -78,7 +78,4 @@ export class PostListComponent implements OnInit, OnDestroy {
       }
     });
   }
-  EditPost(key: number) {
-    this.router.navigate(['/EditPost', { key }]);
-  }
 }

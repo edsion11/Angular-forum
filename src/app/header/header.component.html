@@ -23,11 +23,14 @@
     <div class="rightA" routerLink="/postCreate" routerLinkActive="active">
       <a style="text-decoration: none">Write a New Post</a>
     </div>
-    <div class="rightA" routerLink="/sign" routerLinkActive="active" id="sign">
+    <div class="rightA" routerLink="/sign" routerLinkActive="active" id="sign" *ngIf="!isloggedIn">
       <a style="text-decoration: none">Sign in</a>
     </div>
-    <div class="rightA" routerLink="/signUp" routerLinkActive="active">
+    <div class="rightA" routerLink="/signUp" routerLinkActive="active" *ngIf="!isloggedIn">
       <a style="text-decoration: none">Sign up</a>
+    </div>
+    <div class="rightA" *ngIf="isloggedIn" (click)="logout()">
+      <a style="text-decoration: none">Log out</a>
     </div>
   </div>
 </mat-toolbar>

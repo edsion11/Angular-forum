@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         console.log(data.success);
         that.auth.username = username;
         this.auth.setLoggedIn(true);
+        this.auth.isUserLoggedIn.next(true);
         this.router.navigate(['/userInfo']);
       }
     });

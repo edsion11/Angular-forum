@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollImgComponent } from './scroll-img.component';
+import { MarkdownPreviewComponent } from './markdown-preview.component';
 
-describe('ScrollImgComponent', () => {
-  let component: ScrollImgComponent;
-  let fixture: ComponentFixture<ScrollImgComponent>;
+describe('MarkdownPreviewComponent', () => {
+  let component: MarkdownPreviewComponent;
+  let fixture: ComponentFixture<MarkdownPreviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScrollImgComponent ]
+      declarations: [ MarkdownPreviewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScrollImgComponent);
+    fixture = TestBed.createComponent(MarkdownPreviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

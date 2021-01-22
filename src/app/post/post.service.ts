@@ -35,7 +35,6 @@ export class PostsService {
   /*
     get()请求获取localhost本地资源，不跨域
   */
-  private ServicePosts: Post[] = [];
   public posts: Post[] = [];
 
   private postUpdated = new Subject<Post[]>();

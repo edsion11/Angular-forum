@@ -1,24 +1,47 @@
-.content{
+/* Raster (legacy version without element prefix; rsms.me/raster) */
+@import url("https://rsms.me/res/fonts/iaw.css");
+.content {
   display: flex;
   text-align: center;
   padding-top: 30px;
+  min-height: 90%;
 }
-:host ::ng-deep .ck-editor__editable {
-  min-height: 400px;
+.title{
+  height: 30px!important;
+}
+mat-form-field{
+  width: 95%!important;
+}
+.preview{
+  flex: 1;
 }
 .example-form {
   min-width: 150px;
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.textarea{
+  width: 95%;
+  min-height: 800px;
+  border-radius: 5px;
+  resize: none;
+  overflow-y: scroll;
+  font-family: 'iaw-mono'!important;
+}
+.text-not{
+  visibility: hidden;
+  width: 95%;
+  border-radius: 5px;
 }
 .example-full-width {
   width: 100%;
 }
-#input{
-  height: 25px;
-}
-#submit{
+
+#submit {
   display: inline-block;
   padding: 8px;
   width: 100px;
@@ -32,10 +55,11 @@
   color: black;
   font-weight: bold;
 }
-#submit:hover{
+#submit:hover {
   background-color: black;
   color: white;
+  border: 2px solid white;
 }
-#submit:active{
+#submit:active {
   color: black;
 }
