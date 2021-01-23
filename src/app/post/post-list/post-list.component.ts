@@ -18,6 +18,7 @@ import {
   animate,
 } from '@angular/animations';
 
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -53,7 +54,6 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsSub = this.postsService
       .getPostUpdateListener()
       .subscribe((posts: Post[]) => {
-        console.log('subscribe', posts);
         this.posts = posts;
       });
   }

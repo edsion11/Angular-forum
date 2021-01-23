@@ -24,6 +24,7 @@ export class AuthService {
   public username = '';
   public isLoggedIn = JSON.parse(localStorage.getItem('loggedIn') || 'false');
   public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public network: boolean;
   setLoggedIn(value: boolean) {
     this.isLoggedIn = value;
     localStorage.setItem('loggedIn', value.toString());

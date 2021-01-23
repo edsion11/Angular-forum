@@ -22,15 +22,12 @@ export class EditPostComponent implements OnInit {
     this.route.params.subscribe((key) => {
       that.key = key.key;
     });
-    this.postService.getPost().subscribe((data) => {
-      that.content = that.postService.posts[that.key].content;
-      that.title = that.postService.posts[that.key].title;
-      // @ts-ignore
-      window.markdown.ready.then(markdown => {
-        that.data = markdown.parse(that.postService.posts[that.key].content);
-      });
+    // @ts-ignore
+    window.markdown.ready.then(markdown => {
+      that.data = markdown.parse(that.postService.posts[that.key].content);
     });
-
+    that.content = that.postService.posts[that.key].content;
+    that.title = that.postService.posts[that.key].title;
   }
 
   onchange(){
