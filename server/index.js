@@ -7,7 +7,7 @@ const port = 1234
 app.use(express.static('public'))
 mongoose.Promise = Promise
 
-mongoose.connect('mongodb://127.0.0.1:27017/Angular1').then(() => {
+mongoose.connect('mongodb://127.0.0.1:27017/Angular').then(() => {
   console.log('Mongoose up!')
 })
 
@@ -43,7 +43,6 @@ app.post('/userApi/auth', async (req, res) => {
     username,
     password
   } = req.body
-  //console.log(req.body)
   console.log(username, password)
 
   const resp = await User.findOne({
@@ -54,7 +53,7 @@ app.post('/userApi/auth', async (req, res) => {
     console.log('Incorrect Details')
     res.json({
       success: false,
-      message: 'Incorrect details',
+      message: 'Incorrect Details',
     })
   } else {
     res.json({
@@ -258,7 +257,7 @@ app.post('/userApi/addPost', async (req, res) => {
   })
 })
 
-//console.log('加密了', Encrypt('javascript'))
+// console.log('加密了', Decrypt(Encrypt('javascript')))
 app.listen(port, () => {
   console.log('Server listening at port ' + port)
 })

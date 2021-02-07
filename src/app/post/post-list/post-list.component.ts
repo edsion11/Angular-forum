@@ -16,7 +16,7 @@ import {
   transition,
   trigger,
   animate,
-} from '@angular/animations';
+} from '@angular/animations'; 
 
 
 @Component({
