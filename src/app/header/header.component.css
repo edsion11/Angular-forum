@@ -8,6 +8,7 @@ mat-toolbar {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-right: 0;
+  background-color: rgb(92, 92, 92);
 }
 .leftFlex {
   width: 22%;
@@ -25,7 +26,7 @@ mat-toolbar {
   height: 64px;
   font-size: 15px;
   text-decoration: none;
-  background-image: linear-gradient(rgb(29, 7, 0), rgb(24, 5, 1));
+  background-image: linear-gradient(rgb(204, 245, 57), rgb(233, 215, 52));
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 0 3px;
@@ -38,7 +39,7 @@ mat-toolbar {
 }
 
 .rightFlex .rightA:hover {
-  background-color: rgb(187, 184, 184);
+  background-color: rgb(149, 197, 242);
   cursor: pointer;
   color: rgb(62, 66, 65);
   background-size: 100% 3px;
@@ -51,8 +52,8 @@ mat-toolbar {
   float: right;
   background-image: linear-gradient(
     90deg,
-    rgb(119, 0, 255),
-    rgb(176, 135, 241)
+    rgb(235, 80, 235),
+    rgb(73, 183, 247)
   );
   background-clip: text;
   color: transparent;

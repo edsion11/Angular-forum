@@ -1,7 +1,12 @@
 :host {
   margin: 10px;
 }
-
+mat-expansion-panel-header{
+  background-color: #8c8c8d;
+}
+mat-expansion-panel{
+  background-color: #949494;
+}
 .info-text {
   text-align: center;
 }

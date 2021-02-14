@@ -4,9 +4,10 @@
       <mat-expansion-panel-header>
         {{ post.title }}
       </mat-expansion-panel-header>
-      <p id="list" routerLink="/home" routerLinkActive="active">
+      <app-post-preview></app-post-preview>
+      <!-- <p id="list" routerLink="/home" routerLinkActive="active">
         {{ post.content }}
-      </p>
+      </p> -->
       <mat-action-row *ngIf="posts.length > 0">
         <button mat-button color="primary" [routerLink]="['/EditPost', i]">
           EDIT

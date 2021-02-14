@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/mean-app",
+    "public": "/dist/mean-app",
     "ignore": [
       "firebase.json",
       "**/.*",
