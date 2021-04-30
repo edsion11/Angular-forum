@@ -1,20 +1,21 @@
-import {Component, OnInit, AfterViewInit, Input, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../post.service';
 import {EventEmitter} from 'events';
-import {WasmService} from '../wasm.service';
-
+import * as hljs from 'src/assets/markdown-wasm/highlight';
 @Component({
   selector: 'app-edit-post',
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.css'],
 })
 export class EditPostComponent implements OnInit {
-  constructor(public route: ActivatedRoute, public postService: PostsService, public wasmService: WasmService) {}
+  constructor(public route: ActivatedRoute, public postService: PostsService) {}
   public key = 0;
   public content = '';
   public title = '';
   public data = '';
+  public isShow:boolean = false;
+  public showButton = "预览";
   valChange = new EventEmitter();
   text = document.getElementsByTagName('textarea');
   ngOnInit(): void {
@@ -50,5 +51,15 @@ export class EditPostComponent implements OnInit {
     this.postService.posts[this.key].content = this.content;
     this.postService.posts[this.key].title = this.title;
     this.postService.editPost(this.key);
+  }
+  translateData(){
+    this.isShow?this.showButton="预览":this.showButton="返回";
+    this.isShow = !this.isShow;
+    setTimeout(() => {
+      document.querySelectorAll('pre code[class^="language-"]').forEach(block => {
+        // @ts-ignore
+        hljs.highlightBlock(block)
+      })
+    })
   }
 }

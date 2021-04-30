@@ -1,9 +1,10 @@
 <!-- <p>{{ content }}</p> -->
 <div class="content">
-  <div class="example-form">
-    <mat-form-field class="example-full-width">
-    <input  class="title" matInput placeholder="Title"  [(ngModel)]="title" required >
-    </mat-form-field>
+  <div class="example-form" *ngIf="!isShow">
+    <div class="title-padding">
+      Title:
+      <input class="title" placeholder="Title"  [(ngModel)]="title" required >
+    </div>
     <textarea
       class="textarea"
       (ngModelChange)="onchange()"
@@ -13,5 +14,11 @@
       class="text-not" [(ngModel)]="content"></textarea>
    <div id="submit" routerLink="/home" (click)="postChanged()">提交</div>
   </div>
-  <app-markdown-preview class="preview" [data] = "data"></app-markdown-preview>
+  <div class="preview" *ngIf="isShow">
+    <h2>{{title}}</h2>
+    <app-markdown-preview  [data] = "data"></app-markdown-preview>
+  </div>
+  <div (click)="translateData()" class="show-preview" #button>
+    {{showButton}}
+  </div>
 </div>

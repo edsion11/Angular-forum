@@ -32,6 +32,7 @@ import { EditPostComponent } from './post/edit-post/edit-post.component';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { MarkdownPreviewComponent } from './post/markdown-preview/markdown-preview.component';
 import {PostInterceptor} from './http-interceptors/post-interceptor';
+import { MyInputComponent } from './components/my-input/my-input.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {PostInterceptor} from './http-interceptors/post-interceptor';
     EditPostComponent,
     PostPreviewComponent,
     MarkdownPreviewComponent,
+    MyInputComponent,
   ],
   imports: [
     BrowserModule,

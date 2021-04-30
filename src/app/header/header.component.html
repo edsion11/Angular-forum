@@ -2,22 +2,10 @@
   <div class="leftFlex">
     <span class="spanMessage"><h5>Angular</h5></span>
   </div>
-  <div class="search">
-    <input
-      class="headSearch"
-      type="search"
-      placeholder="Something you want !"
-      [(ngModel)]="inputValue"
-      name="input"
-      (keyup.enter)="onAddSearch()"
-    />
-    <button (click)="onAddSearch()" type="submit">
-      <img src="../../assets/img/examples/thumbs-icon.svg" />
-    </button>
-  </div>
-
+  <app-my-input>
+  </app-my-input>
   <div class="rightFlex">
-    <div class="rightA" routerLink="/home" routerLinkActive="active">
+    <div class="rightA" routerLink="/home" routerLinkActive="active" matRipple>
       <a style="text-decoration: none">Home</a>
     </div>
     <div class="rightA" routerLink="/postCreate" routerLinkActive="active">

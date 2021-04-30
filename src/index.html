@@ -67,8 +67,8 @@
   <body class="mat-typography">
     <app-root class="root"><div class="ball"></div></app-root>
   </body>
-  <script async src="/assets/markdown-wasm/markdown.js"></script>
-
+  <script defer src="/assets/markdown-wasm/markdown.js"></script>
+  <script async src="assets//markdown-wasm/highlight.js"></script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 
@@ -91,5 +91,6 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+    
   </script>
 </html>

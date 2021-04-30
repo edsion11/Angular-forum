@@ -2,14 +2,29 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const session = require('express-session')
 const port = 1234
-
+const {
+  Decrypt,
+  Encrypt
+} = require('./secret/secret')
 app.use(express.static('public'))
 mongoose.Promise = Promise
 
 mongoose.connect('mongodb://127.0.0.1:27017/Angular').then(() => {
   console.log('Mongoose up!')
 })
+
+//midware
+app.use(session({
+  secret: 'screct',
+  resave: true,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000*60
+  }
+}))
+
 
 /**
  *  database:Angular1
@@ -20,10 +35,7 @@ const {
   User,
   Posts
 } = require('./models/users')
-const {
-  Decrypt,
-  Encrypt
-} = require('./secret/secret')
+
 
 //app.use((req, res, next) => {
 //  res.set({
@@ -39,11 +51,9 @@ app.use(bodyParser.json())
  *
  */
 app.post('/userApi/auth', async (req, res) => {
-  const {
-    username,
-    password
-  } = req.body
-  console.log(username, password)
+  const { username } = req.body;
+  let password = Decrypt(req.body.password);
+  console.log(username, password,req.session)
 
   const resp = await User.findOne({
     username,
@@ -56,6 +66,7 @@ app.post('/userApi/auth', async (req, res) => {
       message: 'Incorrect Details',
     })
   } else {
+    req.session.userName = username;
     res.json({
       success: true,
       message: 'logging you in',
@@ -71,11 +82,8 @@ app.post('/userApi/auth', async (req, res) => {
  */
 
 app.post('/userApi/register', async (req, res) => {
-  const {
-    username,
-    password,
-    email
-  } = req.body
+  const {username, email} = req.body;
+  let { password } = req.body;
   const existingUser = await User.findOne({
     username,
   })
@@ -97,6 +105,7 @@ app.post('/userApi/register', async (req, res) => {
     })
     return
   }
+  password = Decrypt(password);
   const user = new User({
     email,
     username,
@@ -115,6 +124,7 @@ app.post('/userApi/register', async (req, res) => {
  *
  */
 app.get('/userApi/logout', async (req, res) => {
+  req.session.userName = null
   res.json({
     success: true,
     message: 'success',
@@ -124,6 +134,7 @@ app.get('/userApi/logout', async (req, res) => {
  * 获取文章列表
  */
 app.get('/userApi/posts:username?', async (req, res) => {
+  console.log(req.session)
   let username = null
   if (req.query.username) {
     username = req.query.username

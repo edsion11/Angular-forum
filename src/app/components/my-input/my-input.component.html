@@ -1,0 +1,13 @@
+<div class="search">
+    <input
+      class="headSearch"
+      type="search"
+      placeholder="Something you want !"
+      [(ngModel)]="inputValue"
+      name="input"
+      (keyup.enter)="onAddSearch()"
+    />
+    <button (click)="onAddSearch()" type="submit">
+      <img src="../../assets/img/examples/thumbs-icon.svg" />
+    </button>
+  </div>

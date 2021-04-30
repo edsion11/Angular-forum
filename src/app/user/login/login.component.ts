@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../UserService/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { UtilCrypto } from '../../util';
+
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private util: UtilCrypto) {}
   ngOnInit(): void {}
   LoginUser(event, userForm: NgForm) {
     if (userForm.invalid) {
@@ -26,10 +28,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/userInfo']);
         return;
       }else{
-        alert('用户名或密码错误');
+        alert('用户名为admin，密码为admin');
       }
     }
-    this.auth.loginUser(username, password).subscribe((data) => {
+    this.auth.loginUser(username, this.util.encrypt(password)).subscribe((data) => {
       alert(data.message);
       if (data.success === true) {
         that.auth.username = username;

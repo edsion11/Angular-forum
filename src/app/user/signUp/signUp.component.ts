@@ -22,7 +22,6 @@ export class SignUpComponent implements OnInit {
     const username = event.target.querySelector('#username').value;
     const password = event.target.querySelector('#password').value;
     const email = event.target.querySelector('#email').value;
-    // console.log(username + ' ' + password + ' ' + email);
     this.auth.registerUser(username, this.utilCrypto.encrypt(password), email).subscribe((data) => {
       console.log(data);
       if (data.success) {

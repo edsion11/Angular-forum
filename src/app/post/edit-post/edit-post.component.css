@@ -1,22 +1,65 @@
 /* Raster (legacy version without element prefix; rsms.me/raster) */
-@import url("https://rsms.me/res/fonts/iaw.css");
 .content {
-  display: flex;
-  text-align: center;
+  align-items: center;
   padding-top: 30px;
   min-height: 90%;
+  font-family: 'iaw-mono'!important;
+}
+.title-padding {
+  padding: 10px;
 }
 .title{
-  height: 30px!important;
+  box-sizing:content-box;
+  border: 1px solid #bfc8e0;
+  width: 354px;
+  height: 37.33px!important;
+  outline: none;
+}
+
+.title:hover{
+  box-shadow: 0 0 5px #28a7e2;
+}
+.title:focus{
+  border-radius:2px;
+  box-shadow: 0 0 10px #63aed1;
 }
 mat-form-field{
   width: 95%!important;
 }
-.preview{
-  flex: 1;
+.show-preview{
+  position: fixed;
+  bottom: 100px;
+  right:-20px;
+  width: 100px;
+  height:60px;
+  background-color: #36f;
+  white-space: nowrap;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  border-radius:15px;
+  font-size: 18px;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 }
+.show-preview:hover{
+  background-color: rgb(7, 55, 199);
+}
+.preview{
+  width:90%;
+  padding: 50px;
+  font-family: 'iaw-mono'!important;
+}
+.preview > pre{
+  font-family: "Roboto Mono", Monaco, courier, monospace;
+}
+.preview > h2{
+  text-align: center;
+}
+
 .example-form {
-  min-width: 150px;
+  min-width: 90vw;
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
@@ -49,6 +92,7 @@ mat-form-field{
   background-color: white;
   border: 2px solid black;
   border-radius: 3px;
+  text-align:center;
   text-decoration: none;
   cursor: pointer;
   font-size: 17px;

@@ -13,14 +13,8 @@ export class HeaderComponent implements OnInit {
       this.isloggedIn = value;
     });
   }
-  public inputValue = '';
-  color: string;
   isloggedIn: boolean;
   ngOnInit(): void {
-  }
-  onAddSearch(): void {
-    window.location.href = 'https://www.baidu.com/s?wd=' + this.inputValue;
-    this.inputValue = '';
   }
   logout(){
     this.auth.setLoggedIn(false);
