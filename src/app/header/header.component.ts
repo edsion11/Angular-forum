@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
       this.isloggedIn = value;
     });
   }
+  isShowSearch: true;
   isloggedIn: boolean;
   ngOnInit(): void {
   }

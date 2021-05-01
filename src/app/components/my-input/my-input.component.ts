@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-my-input',
@@ -9,7 +9,9 @@ export class MyInputComponent implements OnInit {
 
   constructor() { }
   public inputValue = '';
+  @ViewChild('search') search;
   ngOnInit(): void {
+    
   }
   onAddSearch(): void {
     window.location.href = 'https://www.baidu.com/s?wd=' + this.inputValue;
