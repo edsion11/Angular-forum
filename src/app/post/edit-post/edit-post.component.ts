@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../post.service';
 import {EventEmitter} from 'events';
-import * as hljs from 'src/assets/markdown-wasm/highlight';
 @Component({
   selector: 'app-edit-post',
   templateUrl: './edit-post.component.html',
@@ -14,29 +13,26 @@ export class EditPostComponent implements OnInit {
   public content = '';
   public title = '';
   public data = '';
-  public isShow:boolean = false;
-  public showButton = "预览";
+  public isShow = false;
+  public showButton = '预览';
   valChange = new EventEmitter();
   text = document.getElementsByTagName('textarea');
   ngOnInit(): void {
-    const that = this;
-    this.route.params.subscribe((key) => {
-      that.key = key.key;
+    console.log('init');
+    this.route.params.subscribe((data) => {
+      this.key = data.key;
     });
-    // @ts-ignore
     window.markdown.ready.then(markdown => {
-      that.data = markdown.parse(that.postService.posts[that.key].content);
+      this.data = markdown.parse(this.postService.posts[this.key].content);
     });
-    that.content = that.postService.posts[that.key].content;
-    that.title = that.postService.posts[that.key].title;
+    this.content = this.postService.posts[this.key].content;
+    this.title = this.postService.posts[this.key].title;
   }
-
   onchange(){
     this.reset();
     setTimeout(() => {
       this.valChange.emit(this.content);
       this.reset();
-      // @ts-ignore
       window.markdown.ready.then(markdown => {
         this.data = markdown.parse(this.content);
       });
@@ -53,12 +49,11 @@ export class EditPostComponent implements OnInit {
     this.postService.editPost(this.key);
   }
   translateData(){
-    this.isShow?this.showButton="预览":this.showButton="返回";
+    this.isShow ? this.showButton = '预览' : this.showButton = '返回';
     this.isShow = !this.isShow;
     setTimeout(() => {
       document.querySelectorAll('pre code[class^="language-"]').forEach(block => {
-        // @ts-ignore
-        hljs.highlightBlock(block)
+        hljs.highlightBlock(block);
       })
     })
   }

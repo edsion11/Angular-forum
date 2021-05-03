@@ -98,7 +98,7 @@
       element: "anyfunc"
     }), R = !1, "undefined" != typeof TextDecoder && new TextDecoder("utf8"), "undefined" != typeof TextDecoder && new TextDecoder("utf-16le"), 65536, 5251216, 8176, x = u.TOTAL_MEMORY || 16777216, (_ = u.wasmMemory ? u.wasmMemory : new WebAssembly.Memory({
       initial: x / 65536
-    })) && (T = _.buffer), x = T.byteLength, Y(T), L[2044] = 5251216, P = [], U = [], M = [], W = [], O = 0, H = null, D = null, u.preloadedImages = {}, u.preloadedAudios = {}, F = "data:application/octet-stream;base64,", J(N = "markdown.wasm") || (K = N, N = u.locateFile ? u.locateFile(K, h) : h + K), U.push({
+    })) && (T = _.buffer), x = T.byteLength, Y(T), L[2044] = 5251216, P = [], U = [], M = [], W = [], O = 0, H = null, D = null, u.preloadedImages = {}, u.preloadedAudios = {}, F = "data:application/octet-stream;base64,", J(N = "assets/markdown-wasm/markdown.wasm") || (K = N, N = u.locateFile ? u.locateFile(K, h) : h + K), U.push({
       func: function () {
         e()
       }

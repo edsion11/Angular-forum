@@ -26,10 +26,11 @@
     "@types/crypto-js": "^4.0.1",
     "@types/swiper": "^5.3.0",
     "crypto-js": "^4.0.0",
-    "highlightjs": "^9.16.2",
     "jquery": "^3.5.1",
     "markdown-wasm": "^1.1.2",
+    "ng": "*",
     "rxjs": "~6.6.3",
+    "serve": "^11.3.2",
     "swiper": "^5.3.8",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -63,5 +64,5 @@
   },
   "browser": {
     "crypto": false
-}
+  }
 }

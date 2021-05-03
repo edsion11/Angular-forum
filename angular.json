@@ -28,9 +28,13 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/highlight/highlight.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./src/assets/markdown-wasm/markdown.js",
+              "./src/assets/highlight/highlight.js"
+            ]
           },
           "configurations": {
             "production": {

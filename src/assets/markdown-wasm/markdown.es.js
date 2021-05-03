@@ -93,7 +93,7 @@ if (f = null, s.arguments && (l = s.arguments), s.thisProgram && s.thisProgram, 
     element: "anyfunc"
   }), S = !1, "undefined" != typeof TextDecoder && new TextDecoder("utf8"), "undefined" != typeof TextDecoder && new TextDecoder("utf-16le"), 65536, 5251216, 8176, M = s.TOTAL_MEMORY || 16777216, (_ = s.wasmMemory ? s.wasmMemory : new WebAssembly.Memory({
     initial: M / 65536
-  })) && (R = _.buffer), M = R.byteLength, Y(R), L[2044] = 5251216, U = [], H = [], P = [], W = [], x = 0, O = null, D = null, s.preloadedImages = {}, s.preloadedAudios = {}, F = "data:application/octet-stream;base64,", J(N = "markdown.wasm") || (j = N, N = s.locateFile ? s.locateFile(j, h) : h + j), H.push({
+  })) && (R = _.buffer), M = R.byteLength, Y(R), L[2044] = 5251216, U = [], H = [], P = [], W = [], x = 0, O = null, D = null, s.preloadedImages = {}, s.preloadedAudios = {}, F = "data:application/octet-stream;base64,", J(N = "assets/markdown-wasm/markdown.wasm") || (j = N, N = s.locateFile ? s.locateFile(j, h) : h + j), H.push({
     func: function () {
       e()
     }
